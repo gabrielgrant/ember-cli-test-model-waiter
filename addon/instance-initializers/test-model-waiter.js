@@ -27,11 +27,11 @@ export function initialize(appInstance) {
       var store = appInstance.lookup('service:store');
       var pendingStates = ['isSaving','isEmpty', 'isLoading', 'isReloading'];
       var allPendingRecords = [];
-      var anyPending = modelNames.forEach((name) => {
+      modelNames.forEach((name) => {
         var records = store.peekAll(name);
         var pendingRecords = records.filter((r) =>
           pendingStates.map((s) => r.get(s)).some((i) => i)
-        )
+        );
         allPendingRecords =  allPendingRecords.concat(pendingRecords);
       });
 
