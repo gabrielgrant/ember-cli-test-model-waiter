@@ -28,6 +28,14 @@ The rest of this README outlines the details of collaborating on this Ember addo
 * `npm install`
 * `bower install`
 
+To install the development version into an ember-cli app:
+
+* `npm link`
+* `cd /some/ember/cli/project/dir`
+* `npm link ember-cli-test-model-waiter`
+* Open `package.json` and add `"ember-export-application-global": "*"` to `devDependencies` (so ember-cli can find this addon)
+* Open `index.js` and add in your `package.json` and add `isDevelopingAddon(){return true;}` to `module.exports` (so ember-cli will reload your app when making changes to this addon)
+
 ## Running
 
 * `ember server`
