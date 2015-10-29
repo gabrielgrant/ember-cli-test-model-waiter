@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-test-model-waiter",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Make Ember acceptance tests wait for models to resolve.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,12 +11,15 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gabrielgrant/ember-cli-test-model-waiter.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Gabriel Grant",
+  "license": "LGPL",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
     "ember-cli": "1.13.8",
