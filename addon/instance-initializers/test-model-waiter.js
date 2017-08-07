@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import ModuleRegistry from 'ember-resolver/utils/module-registry';
 
 export function initialize(appInstance) {
   if (Ember.testing) {
@@ -17,11 +16,11 @@ export function initialize(appInstance) {
       // but unfortunately it is buggy. Use that once the issue is fixed:
       // https://github.com/ember-cli/ember-resolver/issues/120
       // Until then:
-      var modelRegexp = /^[a-zA-Z0-9-_]+\/models\/(.*)$/;
-      var modelNames = new ModuleRegistry()
-        .moduleNames()
-        .filter((name) => modelRegexp.test(name))
-        .map((name) => modelRegexp.exec(name)[1]);
+      var container = appInstance.__container__;
+      var modelNames = container
+        .lookup('container-debug-adapter:main')
+        .catalogEntriesByType('model')
+        .filter((name) => container.factoryFor('model:' + name));
       // Check for models in any pending state. Inspired by:
       // https://gist.github.com/rsutphin/73fdad14a24884eee336
       var store = appInstance.lookup('service:store');
